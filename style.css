@@ -198,12 +198,28 @@ h2 {
 .hero {
   max-width: 960px;        /* try 800–1024px */
   margin: 16px auto 8px;   /* center it */
-  padding: 0 8px;          /* a little gutter on mobile */
+  padding: 0;              /* remove padding for better centering */
+  text-align: center;      /* ensure content is centered */
 }
 .hero img {
   width: 100%;
   height: auto;            /* never stretch vertically */
   display: block;
+  margin: 0 auto;          /* explicitly center the image */
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+.hero-small {
+  max-width: 480px;        /* smaller size for specific images */
+  margin: 16px auto 8px;   /* center it */
+  padding: 0;              /* remove padding for better centering */
+  text-align: center;      /* ensure content is centered */
+}
+.hero-small img {
+  width: 100%;
+  height: auto;            /* never stretch vertically */
+  display: block;
+  margin: 0 auto;          /* explicitly center the image */
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
