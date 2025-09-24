@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main Step: Page Title / SEO -->
+    <title>Action Recognition for Underwater Diver–Robot Teaming (IROS 2025)</title>
+    <meta name="description" content="Spatio-Temporal Transformer (ST-TR) for underwater diver hand-gesture recognition that improves robustness under murky, low-light conditions—enabling reliable diver–robot teaming." />
+    <meta name="keywords" content="underwater robotics, diver-robot teaming, gesture recognition, spatio-temporal transformer, MediaPipe, IROS 2025" />
+
+    <!-- Open Graph (sharing) -->
+    <meta property="og:title" content="Action Recognition for Underwater Diver–Robot Teaming" />
+    <meta property="og:description" content="Transformer-based underwater gesture recognition for reliable diver–robot teaming." />
+    <meta property="og:image" content="Assets/og-pipeline.jpg" />
+    <meta property="og:url" content="https://YOUR_USERNAME.github.io/YOUR_REPO/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IROS 2025 Project" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Action Recognition for Underwater Diver–Robot Teaming" />
+    <meta name="twitter:description" content="Transformer-based underwater gesture recognition for reliable diver–robot teaming." />
+    <meta name="twitter:image" content="Assets/og-pipeline.jpg" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="Assets/Favicon/icons8-research-color-16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="Assets/Favicon/icons8-research-color-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="Assets/Favicon/icons8-research-color-70.png" sizes="70x70" type="image/png" />
+    <link rel="icon" href="Assets/Favicon/icons8-research-color-72.png" sizes="72x72" type="image/png" />
+    <link rel="icon" href="Assets/Favicon/icons8-research-color-96.png" sizes="96x96" type="image/png" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="#abstract">Abstract</a>
+      <a href="#introduction">Introduction</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#results">Results</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="#bibtex">BibTeX</a>
+      <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </nav>
+
+    <!-- Step 1: Header -->
+    <div class="header">
+      <h1>Action Recognition for Underwater Diver–Robot Teaming</h1>
+      <div class="authors">
+        <p>
+          <a href="#">Zi-Hao Zhang</a><sup>1</sup>,
+          <a href="#">E. Baker Herrin</a><sup>1</sup>,
+          <a href="#">Jia Guo</a><sup>2</sup>,
+          <a href="#">Aditya Penumarti</a><sup>1</sup>,
+          <a href="#">Zilong He</a><sup>2</sup>,
+          <a href="#">Andres Pulido</a><sup>1</sup>,
+          <a href="#">Jane Shin</a><sup>1</sup>
+        </p>
+        <p>
+          <sup>1</sup>Department of Mechanical and Aerospace Engineering, University of Florida, Gainesville, FL, USA &nbsp;&nbsp;
+          <sup>2</sup>Department of Mechanical and Aerospace Engineering, Cornell University, Ithaca, NY, USA
+        </p>
+        <p>
+          Contact: <a href="mailto:zhangzihao@ufl.edu">zhangzihao@ufl.edu</a>
+        </p>
+        <p>📌 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2025</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Buttons -->
+    <div class="buttons">
+      <a href="paper.pdf" target="_blank">Paper (PDF)</a>
+      <a href="https://youtu.be/YOUR_DEMO_ID" target="_blank">Video</a>
+      <a href="https://github.com/YOUR_ORG/YOUR_REPO" target="_blank">Code</a>
+      <a href="https://github.com/YOUR_ORG/YOUR_DATASET_REPO" target="_blank">Dataset (SDG11)</a>
+      <a href="https://huggingface.co/spaces/YOUR_SPACE" target="_blank">Model</a>
+      <a href="#bibtex">BibTeX</a>
+    </div>
+
+    <!-- Optional: Single featured video -->
+    <div class="video-section">
+      <h3>Demo Video</h3>
+      <div class="video-container">
+        <iframe
+          width="560" height="315"
+          src="https://www.youtube.com/embed/YOUR_DEMO_ID"
+          title="Underwater Diver–Robot Teaming: Gesture Recognition Demo"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+      </div>
+      <p>Real-time recognition on diver footage; the recognized gesture switches the robot into a corresponding operation mode (e.g., “Follow Me”).</p>
+    </div>
+
+    <!-- Step 3: Abstract -->
+    <div class="abstract" id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        This paper presents a Spatio-Temporal Transformer-based algorithm for underwater diver hand gesture recognition, forming a key component of diver–robot teaming. Existing computer vision-based approaches primarily rely on frame-wise gesture detection, which often fails to capture motion continuity and suffers under degraded underwater visibility. The presented method integrates temporal modeling to (i) improve recognition accuracy by capturing spatio-temporal patterns in hand motion, and (ii) increase robustness in challenging underwater environments by leveraging sequential image data, thereby mitigating the impact of intermittent misclassifications. The system is evaluated using real-world underwater footage, demonstrating high recognition accuracy and robustness to lighting fluctuations and partial occlusions. The results highlight the effectiveness and practicality of the presented method for real-world diver–robot collaboration, establishing a foundation for more reliable and intelligent underwater human–robot collaboration.
+      </p>
+    </div>
+
+    <!-- Step 4: Introduction -->
+    <div class="content-section" id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Hand signals are the standard channel for diver communication, yet underwater imaging faces turbidity, low light, refraction, and occlusion—conditions that destabilize frame-wise classifiers in autonomy pipelines.
+        We model <em>time</em> with a lightweight Spatio-Temporal Transformer (ST-TR) to stabilize predictions and exploit motion context, especially when hands briefly drop out or lighting changes.
+      </p>
+    </div>
+
+    <!-- Step 5: Methodology -->
+    <div class="content-section" id="methodology">
+      <h2>Methodology</h2>
+      <p>
+        We extract pose/hand keypoints (MediaPipe Holistic or Hands), normalize sequences (~60 frames), and treat each <em>frame</em> as a token. A compact ST-TR encoder (multi-head self-attention + FFN + residuals) attends across time.
+        Global pooling feeds a softmax classifier for 11 scuba gestures. This frame-as-token design captures global temporal patterns efficiently for real-time use.
+      </p>
+      <ul>
+        <li><strong>Keypoints:</strong> Holistic (upper-body + hands) or Hands-only; sequence normalization.</li>
+        <li><strong>Input tokens:</strong> One token per frame (entire joint configuration).</li>
+        <li><strong>ST-TR:</strong> Temporal attention, position embeddings, global pooling.</li>
+        <li><strong>Deployment:</strong> Integrated in a diver–robot autonomy pipeline; recognized gesture triggers mode switches (e.g., follow-diver).</li>
+      </ul>
+      <!-- Suggested figure placements -->
+      <p><em>Suggested images:</em> Pipeline diagram (Fig. 1), Model/input diagram (Fig. 2), Holistic vs Hands visual (Fig. 3).</p>
+    </div>
+
+    <!-- Step 6: Results -->
+    <div class="content-section" id="results">
+      <h2>Results</h2>
+      <p>
+        On SDG11 (11 gestures), ST-TR consistently outperforms LSTM. The highest weighted-F1 is achieved by <strong>Transformer (Holistic)</strong> at <strong>0.757</strong>, followed by <strong>Transformer (Hands)</strong> at <strong>0.459</strong>. LSTM baselines are ≤ 0.088 (Hands) and 0.076 (Holistic).
+        Dynamic gestures like <em>Buddy-Up</em>, <em>Left/Right</em>, and <em>You</em> show large gains with ST-TR, while purely static signs (e.g., <em>Descend</em>) can favor a static frame-wise model—suggesting a hybrid strategy for deployment.
+      </p>
+      <ul>
+        <li><strong>Weighted-F1:</strong> LSTM(Hands) 0.088; LSTM(Holistic) 0.076; Transformer(Hands) 0.459; Transformer(Holistic) 0.757.</li>
+        <li><strong>Per-class highlights:</strong> ST-TR hits 100% on Buddy-Up; ≥95.8% on Left/Right; 83.3% on You.</li>
+        <li><strong>Static vs dynamic:</strong> Static <em>Descend</em> reaches 100% with the static model; ST-TR at 87.5%.</li>
+      </ul>
+      <p><em>Suggested images:</em> Confusion matrices (Fig. 5/6), robustness plot (Fig. 7), failure cases (Fig. 8).</p>
+    </div>
+
+    <!-- Optional: Image Gallery (update images in Assets/) -->
+    <h3>Image Gallery</h3>
+    <div class="carousel-container" id="imageCarousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="Assets/pipeline-fig1.jpg" alt="Autonomy Pipeline" /></div>
+        <div class="carousel-slide"><img src="Assets/model-fig2.jpg" alt="ST-TR Model" /></div>
+        <div class="carousel-slide"><img src="Assets/keypoints-fig3.jpg" alt="Holistic vs Hands" /></div>
+      </div>
+      <button class="carousel-button prev">←</button>
+      <button class="carousel-button next">→</button>
+      <div class="carousel-indicators"></div>
+    </div>
+
+    <!-- Optional: Video Gallery -->
+    <h3>Video Gallery</h3>
+    <div class="carousel-container" id="videoCarousel">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID" title="Demo 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="carousel-slide">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID_2" title="Demo 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="carousel-slide">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID_3" title="Demo 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+      <button class="carousel-button prev">←</button>
+      <button class="carousel-button next">→</button>
+      <div class="carousel-indicators"></div>
+    </div>
+
+    <!-- Step 7: Conclusion -->
+    <div class="content-section" id="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        Temporal attention over keypoint sequences improves robustness to underwater noise and illumination shifts, enabling reliable diver–robot interaction.
+        Future work includes expanding the gesture vocabulary to multi-gesture sequences, bidirectional communication (robot-to-diver feedback), and integrating image enhancement/segmentation to further boost feature quality for real-world missions.
+      </p>
+    </div>
+
+    <!-- Step 8: BibTeX -->
+    <div class="bibtex-section" id="bibtex">
+      <h2>BibTeX</h2>
+      <button class="bibtex-copy-button" onclick="copyBibTeX()">Copy to Clipboard</button>
+      <pre><code class="language-bibtex">
+@inproceedings{zhang2025diverrobot,
+  title     = {Action Recognition for Underwater Diver--Robot Teaming},
+  author    = {Zhang, Zi-Hao and Herrin, E. Baker and Guo, Jia and Penumarti, Aditya and He, Zilong and Pulido, Andres and Shin, Jane},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2025},
+  note      = {Project page: https://YOUR_USERNAME.github.io/YOUR_REPO/}
+}
+      </code></pre>
+    </div>
+
+    <!-- Step 9: Acknowledgement -->
+    <div class="content-section" id="acknowledgement">
+      <h2>Acknowledgement</h2>
+      <p>
+        We thank Quang Pham and Eli Heskin for CNN comparison and Detectron2-based pose estimation, and Daniele Fragiacomo and Silvia Ferrari for valuable contributions to the ideation of this work.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2025 University of Florida &amp; Cornell University. All rights reserved.</p>
+      <!-- Please do not remove below code. -->
+      <p>
+        Website template free to borrow from
+        <a href="https://github.com/indramal/iNdra-GitHub-Page-Template-For-Resarch">here</a>.
+      </p>
+      <div>
+        <img src="https://profile-counter.glitch.me/indragithubpagetemplate/count.svg" alt="Profile Counter">
+      </div>
+    </div>
+
+    <!-- Keep template's script include -->
+    <script src="script.js"></script>
+  </body>
+</html>
