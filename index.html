@@ -99,7 +99,7 @@
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
         </iframe>
       </div>
-      <p>Presentation.</p>
+      <p>IROS2025 Presentation Video.</p>
     </div>
 
     <!-- Step 3: Abstract -->
@@ -112,6 +112,10 @@
     <!-- Step 4: Dataset -->
     <div class="content-section" id="dataset">
       <h2>Dataset</h2>
+      <figure class="hero">
+        <img src="media/sdg11.png" alt="Overview pipeline for the project" loading="lazy" />
+        <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+      </figure>
       <p>
         We use the Scuba Gesture Dataset (SDG11) for training and evaluation. Please refer to the original repository for dataset access:
       </p>
@@ -119,14 +123,19 @@
         <a href="https://github.com/abubake/Scuba-Gesture-Dataset.git" target="_blank">Scuba Gesture Dataset (SDG11)</a>
       </p>
     </div>
-    <figure class="hero">
-      <img src="media/sdg11.png" alt="Overview pipeline for the project" loading="lazy" />
-      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
-    </figure>
+    
     <!-- Step 5: Methodology -->
     <div class="content-section" id="methodology">
       
       <h2>Methodology</h2>
+      <figure class="hero">
+        <img src="media/pipeline.png" alt="Pipeline diagram" loading="lazy" />
+      </figure>
+      <div class="image-row">
+        <img src="media/autonomy_pipeline copy.png" alt="Autonomy pipeline diagram" loading="lazy" />
+        <img src="media/autonomy_pipeline copy 2.png" alt="Autonomy pipeline diagram 2" loading="lazy" />
+        <img src="media/autonomy_pipeline copy 3.png" alt="Autonomy pipeline diagram 3" loading="lazy" />
+      </div>
       <p>
         We extract pose/hand keypoints (MediaPipe Holistic or Hands), normalize sequences (~60 frames), and treat each <em>frame</em> as a token. A compact ST-TR encoder (multi-head self-attention + FFN + residuals) attends across time.
         Global pooling feeds a softmax classifier for 11 scuba gestures. This frame-as-token design captures global temporal patterns efficiently for real-time use.
@@ -148,6 +157,10 @@
         <!-- <figcaption>Optional short caption goes here.</figcaption> -->
       </figure>
       <h2>Results</h2>
+      <figure class="Hero">
+        <img src="media/Video Project 15.gif" alt="real time demo" loading="lazy" />
+        <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+      </figure>
       <p>
         On SDG11 (11 gestures), ST-TR consistently outperforms LSTM. The highest weighted-F1 is achieved by <strong>Transformer (Holistic)</strong> at <strong>0.757</strong>, followed by <strong>Transformer (Hands)</strong> at <strong>0.459</strong>. LSTM baselines are ≤ 0.088 (Hands) and 0.076 (Holistic).
         Dynamic gestures like <em>Buddy-Up</em>, <em>Left/Right</em>, and <em>You</em> show large gains with ST-TR, while purely static signs (e.g., <em>Descend</em>) can favor a static frame-wise model—suggesting a hybrid strategy for deployment.
@@ -158,16 +171,13 @@
         <li><strong>Static vs dynamic:</strong> Static <em>Descend</em> reaches 100% with the static model; ST-TR at 87.5%.</li>
       </ul>
     </div>
-    <figure class="hero-small">
-      <img src="media/Video Project 15.gif" alt="real time demo" loading="lazy" />
-      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
-    </figure>
+    
     <!-- Optional: Image Gallery (update images in Assets/) -->
     <h3>Image Gallery</h3>
     <div class="carousel-container" id="imageCarousel">
       <div class="carousel-track">
         <div class="carousel-slide"><img src="media\videoDemo.gif" alt="recognition demo" /></div>
-        <div class="carousel-slide"><img src="media\Video Project 17.gif" alt="pipeline demo" /></div>
+        <div class="carousel-slide"><img src="media\Video Project 13.gif" alt="pipeline demo" /></div>
         <div class="carousel-slide"><img src="media\pipeline.png" alt="Pipeline" /></div>
       </div>
       <button class="carousel-button prev">←</button>
@@ -208,9 +218,7 @@
         Website template free to borrow from
         <a href="https://github.com/indramal/iNdra-GitHub-Page-Template-For-Resarch">here</a>.
       </p>
-      <div>
-        <img src="https://profile-counter.glitch.me/indragithubpagetemplate/count.svg" alt="Profile Counter">
-      </div>
+      
     </div>
 
     <!-- Keep template's script include -->
