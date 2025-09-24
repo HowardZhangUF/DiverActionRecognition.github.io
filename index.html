@@ -35,10 +35,8 @@
   <body>
     <nav class="nav">
       <a href="#abstract">Abstract</a>
-      <a href="#introduction">Introduction</a>
       <a href="#methodology">Methodology</a>
       <a href="#results">Results</a>
-      <a href="#conclusion">Conclusion</a>
       <a href="#bibtex">BibTeX</a>
       <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </nav>
@@ -78,6 +76,10 @@
     </div>
 
     <!-- Hero / Slide image above the video -->
+     <figure class="hero">
+      <img src="media/slide.png" alt="Overview pipeline for the project" loading="lazy" />
+      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+    </figure>
     <figure class="hero">
       <img src="media/slide.png" alt="Overview pipeline for the project" loading="lazy" />
       <!-- <figcaption>Optional short caption goes here.</figcaption> -->
@@ -110,21 +112,9 @@
       </p>
     </div>
 
-    <!-- Step 4: Introduction -->
-    <div class="content-section" id="introduction">
-      <h2>Introduction</h2>
-      <p>
-        Hand signals are the standard channel for diver communication, yet underwater imaging faces turbidity, low light, refraction, and occlusion—conditions that destabilize frame-wise classifiers in autonomy pipelines.
-        We model <em>time</em> with a lightweight Spatio-Temporal Transformer (ST-TR) to stabilize predictions and exploit motion context, especially when hands briefly drop out or lighting changes.
-      </p>
-    </div>
-
     <!-- Step 5: Methodology -->
     <div class="content-section" id="methodology">
-      <figure class="hero">
-        <img src="media\pipeline.png" alt="Overview pipeline for the project" loading="lazy" />
-        <!-- <figcaption>Optional short caption goes here.</figcaption> -->
-      </figure>
+      
       <h2>Methodology</h2>
       <p>
         We extract pose/hand keypoints (MediaPipe Holistic or Hands), normalize sequences (~60 frames), and treat each <em>frame</em> as a token. A compact ST-TR encoder (multi-head self-attention + FFN + residuals) attends across time.
@@ -142,6 +132,10 @@
 
     <!-- Step 6: Results -->
     <div class="content-section" id="results">
+      <figure class="hero">
+        <img src="media\pipeline.png" alt="Overview pipeline for the project" loading="lazy" />
+        <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+      </figure>
       <h2>Results</h2>
       <p>
         On SDG11 (11 gestures), ST-TR consistently outperforms LSTM. The highest weighted-F1 is achieved by <strong>Transformer (Holistic)</strong> at <strong>0.757</strong>, followed by <strong>Transformer (Hands)</strong> at <strong>0.459</strong>. LSTM baselines are ≤ 0.088 (Hands) and 0.076 (Holistic).
@@ -160,7 +154,7 @@
     <div class="carousel-container" id="imageCarousel">
       <div class="carousel-track">
         <div class="carousel-slide"><img src="media\videoDemo.gif" alt="recognition demo" /></div>
-        <div class="carousel-slide"><img src="media\demo.gif" alt="pipeline demo" /></div>
+        <div class="carousel-slide"><img src="media\Video Project 17.gif" alt="pipeline demo" /></div>
         <div class="carousel-slide"><img src="media\pipeline.png" alt="Pipeline" /></div>
       </div>
       <button class="carousel-button prev">←</button>
@@ -168,33 +162,7 @@
       <div class="carousel-indicators"></div>
     </div>
 
-    <!-- Optional: Video Gallery -->
-    <h3>Video Gallery</h3>
-    <div class="carousel-container" id="videoCarousel">
-      <div class="carousel-track">
-        <div class="carousel-slide">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID" title="Demo 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID_2" title="Demo 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_DEMO_ID_3" title="Demo 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-      <button class="carousel-button prev">←</button>
-      <button class="carousel-button next">→</button>
-      <div class="carousel-indicators"></div>
-    </div>
-
-    <!-- Step 7: Conclusion -->
-    <div class="content-section" id="conclusion">
-      <h2>Conclusion</h2>
-      <p>
-        Temporal attention over keypoint sequences improves robustness to underwater noise and illumination shifts, enabling reliable diver–robot interaction.
-        Future work includes expanding the gesture vocabulary to multi-gesture sequences, bidirectional communication (robot-to-diver feedback), and integrating image enhancement/segmentation to further boost feature quality for real-world missions.
-      </p>
-    </div>
+  
 
     <!-- Step 8: BibTeX -->
     <div class="bibtex-section" id="bibtex">
