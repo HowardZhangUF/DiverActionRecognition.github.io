@@ -35,6 +35,7 @@
   <body>
     <nav class="nav">
       <a href="#abstract">Abstract</a>
+      <a href="#dataset">Dataset</a>
       <a href="#methodology">Methodology</a>
       <a href="#results">Results</a>
       <a href="#bibtex">BibTeX</a>
@@ -81,13 +82,10 @@
       <!-- <figcaption>Optional short caption goes here.</figcaption> -->
     </figure>
     <figure class="hero">
-      <img src="media/slide.png" alt="Overview pipeline for the project" loading="lazy" />
+      <img src="media/VideoProject17.gif" alt="Overview pipeline for the project" loading="lazy" />
       <!-- <figcaption>Optional short caption goes here.</figcaption> -->
     </figure>
-    <figure class="hero-small">
-      <img src="media/Video Project 15.gif" alt="real time demo" loading="lazy" />
-      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
-    </figure>
+    
     <!-- Optional: Single featured video -->
     <div class="video-section">
       <h3>Overview Video</h3>
@@ -111,6 +109,20 @@
         This paper presents a Spatio-Temporal Transformer-based algorithm for underwater diver hand gesture recognition, forming a key component of diver–robot teaming. Existing computer vision-based approaches primarily rely on frame-wise gesture detection, which often fails to capture motion continuity and suffers under degraded underwater visibility. The presented method integrates temporal modeling to (i) improve recognition accuracy by capturing spatio-temporal patterns in hand motion, and (ii) increase robustness in challenging underwater environments by leveraging sequential image data, thereby mitigating the impact of intermittent misclassifications. The system is evaluated using real-world underwater footage, demonstrating high recognition accuracy and robustness to lighting fluctuations and partial occlusions. The results highlight the effectiveness and practicality of the presented method for real-world diver–robot collaboration, establishing a foundation for more reliable and intelligent underwater human–robot collaboration.
     </div>
 
+    <!-- Step 4: Dataset -->
+    <div class="content-section" id="dataset">
+      <h2>Dataset</h2>
+      <p>
+        We use the Scuba Gesture Dataset (SDG11) for training and evaluation. Please refer to the original repository for dataset access:
+      </p>
+      <p>
+        <a href="https://github.com/abubake/Scuba-Gesture-Dataset.git" target="_blank">Scuba Gesture Dataset (SDG11)</a>
+      </p>
+    </div>
+    <figure class="hero">
+      <img src="media/sdg11.png" alt="Overview pipeline for the project" loading="lazy" />
+      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+    </figure>
     <!-- Step 5: Methodology -->
     <div class="content-section" id="methodology">
       
@@ -145,9 +157,11 @@
         <li><strong>Per-class highlights:</strong> ST-TR hits 100% on Buddy-Up; ≥95.8% on Left/Right; 83.3% on You.</li>
         <li><strong>Static vs dynamic:</strong> Static <em>Descend</em> reaches 100% with the static model; ST-TR at 87.5%.</li>
       </ul>
-      <p><em>Suggested images:</em> Confusion matrices (Fig. 5/6), robustness plot (Fig. 7), failure cases (Fig. 8).</p>
     </div>
-
+    <figure class="hero-small">
+      <img src="media/Video Project 15.gif" alt="real time demo" loading="lazy" />
+      <!-- <figcaption>Optional short caption goes here.</figcaption> -->
+    </figure>
     <!-- Optional: Image Gallery (update images in Assets/) -->
     <h3>Image Gallery</h3>
     <div class="carousel-container" id="imageCarousel">
