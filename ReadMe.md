@@ -1,68 +1,126 @@
-# iNdra Page Template: This is a Website / GitHub Page Template for Research Papers / Academic Papers [Free] [v1]
+# Action Recognition for Underwater Gesture Communication in Human Diver and Robot Teaming
 
-> Demo Page - https://indramal.github.io/iNdra-GitHub-Page-Template-For-Resarch/
+This repository implements a **Spatiotemporal Transformer Network (ST-TR)** for **gesture/action recognition** using **MediaPipe** to extract keypoints. It provides a complete pipeline for data processing, visualization, training, and inference, enabling end-to-end gesture recognition from videos.
 
-You can free to borrow from this template for your own personal use. Please do not remove below code of the template mentioned to about this template.
-
-## Included
-
-* SEO tags
-* All paper sections (Abstract,Introduction,Methodology, Results, Conclusion,BibTeX,Acknowledgement)
-* Authers details
-* BibTex Copy to Clipboard button - Reader can easily copy it
-* Pre-built codes
-  * Image Gallery - Auto Slideshow
-  * Video Gallery - Auto Slideshow
-  * Demo Video
-  * Demo Videos List
-* Dark Mode
-* Menu Bar
-* Scroll Up Button
-
-## Simple Steps
-
-Step 1: Fork this repo or download this repo
-
-Step 2: Edit index.html file (Comments included)
-
-Step 3: Create your own repo for your research in your GitHub account and upload files
-
-Step 4: Creare a page for that (Repo Setting --> Pages --> Select Brach and Save then GitHub Action will run and give Page URL for your page)
-
-## index.html File Edit Help
-
-If you know web development, you can edit the index.html file and also script.js and style.css files.
-
-This has main step and step 1 to 10. index.html file also has comments for each step. If you have any query, please contact me.
-
-**Steps:**
-
-Main Step: Edit Page Title (Edit SEO tags if you can, it will help for Google Search)
-
-Step 1: Header Part (Authers and Other Details)
-
-Step 2: Button for links
-
-Step 3: Add your paper abstract
-
-Step 4: Add your paper introduction
-
-Step 5: Add your paper methodology
-
-Step 6: Add your paper results
-
-Step 7: Add your paper conclusion
-
-Step 8: Add your paper bibtex
-
-Step 9: Add your paper acknowledgements
-
-Step 10: Edit page footer
+![](https://github.com/HowardZhangUF/Spatial-Temporal-Transformer-Network-Mediapipe/blob/main/demo.gif)
+![](https://github.com/HowardZhangUF/Spatial-Temporal-Transformer-Network-Mediapipe/blob/main/videoDemo.gif)
 
 ---
 
-Please send me feedback on [GitHub](https://github.com/indramal/iNdra-GitHub-Page-Template-For-Resarch/issues)
+## Table of Contents
 
-> Made with ❤️ by [Indramal](https://github.com/indramal)
+1. [Introduction](#introduction)
+2. [Dataset](#dataset)
+3. [Installation & Dependencies](#installation--dependencies)
+4. [Keypoint Visualization](#keypoint-visualization)
+5. [Training the Transformer](#training-the-transformer)
+6. [Running Demos](#running-demos)
+7. [License & Credits](#license--credits)
+8. [Future Work](#future-work)
 
-![Visitor Count](https://profile-counter.glitch.me/indramalgithubpagetemplate/count.svg)
+
+---
+
+## Introduction
+
+Gesture and action recognition plays a crucial role in Human-Computer Interaction (HCI), robotics, and AR/VR. This project leverages:
+
+* **MediaPipe** for efficient and robust keypoint extraction of hands, body, and holistic poses.
+* **Spatiotemporal Transformer Networks (ST-TR)** to model temporal dependencies and spatial correlations across keypoints.
+* **PyTorch** for deep learning model implementation and training.
+
+
+
+---
+
+## Dataset
+
+We use the **Scuba Gesture Dataset (SDG11)** for training and evaluation. Please refer to the original repository for dataset access:
+
+[Scuba Gesture Dataset (SDG11)](https://github.com/abubake/Scuba-Gesture-Dataset.git)
+
+---
+
+## Installation & Dependencies
+
+1. **Clone this repository**:
+
+   ```bash
+   git clone https://github.com/HowardZhangUF/Action-Recognition-for-Underwater-Gesture-Communication-in-Human-Diver-and-Robot-Teaming.git
+   cd Action-Recognition-for-Underwater-Gesture-Communication-in-Human-Diver-and-Robot-Teaming
+   ```
+
+2. **Install dependencies** (Python 3.10.12+ recommended):
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   Key dependencies:
+
+   * **PyTorch**
+   * **numpy**
+   * **scikit-learn**
+   * **mediapipe**
+   * **matplotlib**
+   * **opencv-python**
+
+---
+
+## Keypoint Visualization
+
+Visualize extracted keypoints from videos:
+
+```bash
+python VideoKeypointVisualization.py
+```
+
+---
+
+## Training the Transformer
+![Alt text](/media/perception_method.png)
+Train the Spatiotemporal Transformer model using prepared datasets:
+
+```bash
+python ST-TR_Train_holistic_4encoder.py
+```
+
+The training script supports both **hand-only** and **holistic body** keypoints. Training logs and checkpoints will be saved for evaluation.
+
+---
+
+## Running Demos
+
+### Run gesture classification on prerecorded video (hand keypoints):
+
+```bash
+python Demo_ST-TR_ActionRecognition_Hand.py
+```
+
+### Run gesture classification on prerecorded video (holistic body keypoints):
+
+```bash
+python Demo_ST-TR_ActionRecognition_Holistic.py
+```
+
+
+
+
+---
+
+## License & Credits
+
+* **License**: MIT
+* **Credits**:
+
+  * [MediaPipe](https://github.com/google/mediapipe) for keypoint detection.
+  * [PyTorch](https://pytorch.org/) for deep learning.
+  * Transformer backbone inspired by Vaswani et al., *Attention is All You Need*.
+
+---
+
+## Future Work
+
+* Extend the dataset with more diverse gestures.
+* Optimize for mobile and embedded devices.
+* Integrate multimodal data (RGB + keypoints).
